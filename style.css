@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.photo-container {
+    position: relative;
+    width: 100%;
+    height: 600px; /* Adjust based on your needs */
+    overflow: hidden;
+    display: flex;
+}
+
+.photo-row {
+    display: flex;
+    justify-content: space-between;
+    height: 16.66%; /* Each row takes up one-sixth of the container */
+    overflow: hidden;
+    position: relative;
+}
+
+.photo-box {
+    width: calc(100% / 6);
+    height: 100%;
+    background-color: black; /* Replace with your image */
+    border-radius: 20px;
+    margin: 5px;
+    background-size: cover;
+    background-position: center;
+    /* Replace the background color with your image, e.g., background-image: url('photo1.jpg'); */
+}
+
+.photos-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10vw;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-container:hover .photos-text {
+    opacity: 1;
+}
+
+.photo-container:hover .photo-row {
+    filter: blur(5px);
+}
+

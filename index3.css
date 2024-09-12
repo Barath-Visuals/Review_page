@@ -1,0 +1,61 @@
+body {
+    background-color: #ff9900; /* Yellow background */
+    margin: 0;
+    padding: 0;
+}
+
+.photo-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Set your desired width */
+    margin: 50px auto; /* Center the container */
+    height: 400px; /* Adjust height as needed */
+    background-color: #333333; /* Grey background */
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Each row */
+.photo-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: calc(100% / 6); /* Six columns */
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-box {
+    width: 100%;
+    height: calc(100% / 6); /* Six images stacked */
+    background-color: black; /* Replace with image backgrounds */
+    margin: 5px 0;
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    /* Replace background-color with your image, e.g., background-image: url('image1.jpg'); */
+}
+
+/* Hover effect */
+.photos-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 10vw;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.photo-container:hover .photos-text {
+    opacity: 1;
+}
+
+.photo-container:hover .photo-row {
+    filter: blur(5px);
+}

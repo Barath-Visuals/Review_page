@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Image Grid</title>
+    <style>
+        /* Viewport background */
+        body {
+            background-color: #ff9900; /* Yellow background */
+            margin: 0;
+            padding: 0;
+        }
+
+        .photo-container {
+            position: relative;
+            width: 100%;
+            max-width: 2000px; /* Adjust based on your design width */
+            margin: 50px auto; /* Center the container */
+            height: 800px; /* Adjust height to match design */
+            background-color: #33333300; /* Grey background */
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* Each row */
+        .photo-row {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: auto;
+            width: calc(100% / 6);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photo-box {
+            width: 100%;
+            height: auto;
+            margin: 4px 1px;
+        }
+
+        .photo-box img{
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        /* Hover effect */
+        .photos-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10vw;
+            color: rgba(255, 255, 255, 0.7);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .photo-container:hover .photos-text {
+            opacity: 1;
+        }
+
+        .photo-container:hover .photo-row {
+            filter: blur(5px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="photo-container">
+    <!-- Row 1 (slides top to bottom) -->
+    <div class="photo-row" id="row1">
+        <div class="photo-box"><img src="slide images kb/Alan B&W.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/alan.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Muttom-Beach.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Saran-Photos.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Sunset.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Blue_blur.jpg" alt=""></div>
+    </div>
+    <div class="photo-row" id="row2">
+        <div class="photo-box"><img src="slide images kb/alan with helmet.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Beach Wave.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/netta mountain.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Saran-Silhoutte.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vickcy.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Blur.jpg" alt=""></div>
+    </div>
+    <div class="photo-row" id="row3">
+        <div class="photo-box"><img src="slide images kb/Alan-B&W2.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Danieal-Jefrin-Hoodie.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Netta-Mountain-Lake.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Silhoutte.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-BIke-Night.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Blur02.jpg" alt=""></div>
+    </div>
+    <div class="photo-row" id="row4">
+        <div class="photo-box"><img src="slide images kb/Alan-BeachView.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Flowers.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Panningshot-Bird.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/sunset cocunt tree.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Bike.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Car-Bike.jpg" alt=""></div>
+    </div>
+    <div class="photo-row" id="row5">
+        <div class="photo-box"><img src="slide images kb/Alan-Bike-TopView.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Jai-Light.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Saran-Blue-Ligtpainting.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/sunset with crows.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Bike02.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Netta-Lakeview.jpg" alt=""></div>
+    </div>
+    <div class="photo-row" id="row6">
+        <div class="photo-box"><img src="slide images kb/Alan-Bike.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Jai.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Saran-Lightpainting.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/sunset-muttom-pro.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Bike_lean.jpg" alt=""></div>
+        <div class="photo-box"><img src="slide images kb/Vicky-Netta_Road.jpg" alt=""></div>
+    </div>
+
+    <!-- Overlay Text -->
+    <div class="photos-text">PHOTOS</div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const rows = document.querySelectorAll(".photo-row");
+
+        rows.forEach((row, index) => {
+            const direction = (index + 1) % 2 === 0 ? 1 : -1; // Odd rows slide down, even rows slide up
+            let position = 0;
+
+            function slideRow() {
+                position += direction * 2; // Adjust speed of sliding
+                if (position >= row.clientHeight || position <= -row.clientHeight) {
+                    direction *= -1; // Reverse the direction
+                }
+                row.style.transform = `translateY(${position}px)`;
+                requestAnimationFrame(slideRow);
+            }
+
+            slideRow();
+        });
+    });
+</script>
+</body>
+</html>
