@@ -1,65 +1,65 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 #review-section {
-    padding: 20px;
-    background-color: black;
-    color: white;
-    border-radius: 20px;
+  padding: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 20px;
 }
 
 #reviews-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    color: black;
-    background-color: grey;
-    width: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  color: black;
+  margin: 2rem 1rem;
 }
 
 .review-box {
-    background-color: gray;
-    padding: 15px;
-    border-radius: 10px;
-    color: black;
-    flex: 1;
-    min-width: 150px;
-    max-width: 250px;
-    word-wrap: break-word;
-    position: relative;
+  background-color: gray;
+  padding: 15px;
+  border-radius: 10px;
+  color: black;
+  flex: 1;
+  min-width: 150px;
+  max-width: 250px;
+  word-wrap: break-word;
+  position: relative;
 }
 
 .review-box .edit-btn {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    background: none;
-    border: none;
-    color: black;
-    cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
 }
 
 #review-form {
-    display: flex;
-    margin-top: 20px;
+  display: flex;
+  margin-top: 20px;
 }
 
 #review-input {
-    flex: 1;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid white;
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid white;
 }
 
 button[type="submit"] {
-    margin-left: 10px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: white;
-    color: black;
-    border: none;
-    cursor: pointer;
+  margin-left: 10px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
 }
